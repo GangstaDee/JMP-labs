@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'jdepend'
+
+archivesBaseName = 'MazeLab'
+
+buildDir = 'build-gradle'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Mazelab',
+                   'Implementation-Version': version,
+                   'Main-Class': 'com.jmp.main.EntryPoint'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+}
