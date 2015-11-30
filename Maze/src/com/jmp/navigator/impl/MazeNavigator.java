@@ -1,23 +1,23 @@
-package com.jmp.listener.impl;
+package com.jmp.navigator.impl;
 
 import com.jmp.entity.animal.Animal;
 import com.jmp.entity.maze.Cell;
 import com.jmp.entity.maze.DirectionCommand;
 import com.jmp.entity.maze.Maze;
-import com.jmp.listener.Listener;
 import com.jmp.logger.ConsoleStream;
+import com.jmp.navigator.Navigator;
 
-public class MazeNavigator implements Listener {
+public class MazeNavigator implements Navigator {
 
 	private Maze maze;
 	private Animal animal;
 	
 	@Override
-	public void performAction(String input) {
-				
+	public void moveAnimal(String command) {	
+		
 		Integer eventKey = null;
 		try {
-			eventKey = Integer.parseInt(input);
+			eventKey = Integer.parseInt(command);
 		} catch (NumberFormatException ex) {
 			ConsoleStream.doError("Unknown command!");
 			return;
@@ -26,7 +26,7 @@ public class MazeNavigator implements Listener {
 		for (DirectionCommand event: DirectionCommand.values()) {
 			if(event.getKey() == eventKey) {
 				
-				ConsoleStream.doLog("Moving in maze... ");
+				ConsoleStream.doLog("Moving " + animal.getName() + " in maze... ");
 				
 				switch(event) {
 				case UP:
@@ -76,6 +76,18 @@ public class MazeNavigator implements Listener {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public String getNextCommand() {
+
+		return this.animal.getNextCommand();
+	}
+
+	@Override
+	public void updateNextCommand() {
+		this.animal.updateNextCommand();
+		
 	}
 
 }

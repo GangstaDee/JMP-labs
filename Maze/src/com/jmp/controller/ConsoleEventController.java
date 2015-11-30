@@ -4,34 +4,53 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.jmp.listener.Listener;
+import com.jmp.entity.animal.Animal;
 import com.jmp.logger.ConsoleStream;
+import com.jmp.navigator.Navigator;
+import com.jmp.renderer.Renderer;
 
 public class ConsoleEventController implements Runnable {
 
 	private static final String EXIT = "exit";
-	private List<Listener> listeners = new ArrayList<Listener>();
+	
+	private Navigator navigator;
+	private Renderer renderer;
+	
+	private List<Animal> animals = new ArrayList<Animal>();
 	
 	@Override
 	public void run() {
 
+		String command;				
 		try (Scanner scan = new Scanner(System.in)) {
 			while (scan.hasNext()) {
-				String input = scan.next();	
-				
-				if(EXIT.equals(input)) { 
+				command = scan.next();							
+				if(EXIT.equals(command)) { 
 					ConsoleStream.doLog("Bye!");
 					System.exit(0);
+				}	
+				
+				for(Animal animal : animals) {
+					navigator.setAnimal(animal);					
+					String nextCommand = navigator.getNextCommand() == null ? command : navigator.getNextCommand();						
+					navigator.moveAnimal(nextCommand);
+					navigator.updateNextCommand();
 				}
-
-				for(Listener listener : listeners) {
-					listener.performAction(input);
-				}
-			}
-		}
+				renderer.render();
+			}																								
+		}			
 	}
 	
-	public void addListener (Listener l) {
-		listeners.add(l);
+	public void addAnimals(List<Animal> list) {
+		this.animals.addAll(list);
 	}
+
+	public void setRenderer(Renderer renderer) {
+		this.renderer = renderer;
+	}
+	
+	public void setNavigator(Navigator navigator) {
+		this.navigator = navigator;
+	}	
 }
+

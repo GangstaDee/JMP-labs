@@ -4,8 +4,8 @@ import com.jmp.entity.maze.Point;
 
 public class Duck extends Animal {
 
-	public Duck(Point point) {
-		super(point);
+	public Duck(Point point, String name) {
+		super(point, name);
 		super.setStep(1);
 	}
 
@@ -23,6 +23,16 @@ public class Duck extends Animal {
 	
 	public void moveRight() {
 		super.setPointY(super.getPointY() + super.getStep());
+	}
+
+	@Override
+	public String getNextCommand() {		
+		return null;
+	}
+
+	@Override
+	public void updateNextCommand() {
+		//do nothing	
 	}
 
 }

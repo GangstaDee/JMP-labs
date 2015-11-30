@@ -5,6 +5,11 @@ public class Point {
 	private Integer pointX;
 	private Integer pointY;
 	
+	public Point(Point p) {
+		this.pointX = p.pointX;
+		this.pointY = p.pointY;
+	}
+	
 	public Point(Integer pointX, Integer pointY) {
 		super();
 		this.pointX = pointX;

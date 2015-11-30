@@ -4,13 +4,14 @@ import com.jmp.entity.maze.Point;
 
 public abstract class Animal {
 
-	private Point point;
-	
+	private Point point;	
 	private Integer step;
+	private String name;
 	
-	public Animal(Point point) {
+	public Animal(Point point, String name) {
 		super();
 		this.point = point;
+		this.name = name;
 	}
 
 	public Point getPoint() {
@@ -41,6 +42,14 @@ public abstract class Animal {
 		this.step = step;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public abstract void moveUp(); 
 	
 	public abstract void moveDown();
@@ -48,4 +57,8 @@ public abstract class Animal {
 	public abstract void moveLeft(); 
 
 	public abstract void moveRight();
+	
+	public abstract String getNextCommand();
+	
+	public abstract void updateNextCommand();
 }
