@@ -21,7 +21,7 @@ public class EntryPoint {
 		
 		ConsoleStream.printLine("Welcome to Maze :) 8 - Up, 4 - Left, 5 - Down, 6 - Right, 'exit' - to quit");	
 
-		String absoluteFilePath = "c:\\Users\\Dasha.Selyavko\\workspace_eclipse\\Maze\\resources\\maze.txt";
+		String absoluteFilePath = "####maze.txt";
 		
 		Maze maze = MazesFactory.buildFromFile(absoluteFilePath);
 		
