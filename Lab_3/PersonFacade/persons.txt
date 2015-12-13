@@ -1,0 +1,3 @@
+Person {name = 'Nella', age = 23, iq = 160}
+Person {name = 'Maryia', age = 24, iq = 215}
+Person {name = 'Peter', age = 21, iq = 130}
