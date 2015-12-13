@@ -10,10 +10,11 @@ import com.jmp.person.file.FileWriter;
  */
 public class PersonKeeper {
 
-    private PersonStorage storage = new PersonStorage();  //can be loaded separately from some source
+    private PersonStorage storage;
     private FileWriter writer;
 
-    public PersonKeeper (FileWriter writer) {
+    public PersonKeeper (PersonStorage storage, FileWriter writer) {
+        this.storage = storage;
         this.writer = writer;
     }
 
