@@ -2,6 +2,7 @@ package com.jmp.person.facade;
 
 import com.jmp.person.entity.Person;
 import com.jmp.person.entity.PersonStorage;
+import com.jmp.person.exception.PersonNotFoundException;
 import com.jmp.person.file.FileWriter;
 
 
@@ -23,28 +24,27 @@ public class PersonKeeper {
         saveStorage();
     }
 
-    public Person getSmartestPerson(int firstID, int secondID) {
+    public Person getSmartestPerson(int firstID, int secondID) throws PersonNotFoundException {
         Person p1 = storage.getPersonByID(firstID);
         Person p2 = storage.getPersonByID(secondID);
-        if(p1 == null && p2 == null) {
-            System.err.println("No person exists with ID = " + ((p1 == null) ? firstID : secondID));
-            return null;
+        if(p1 == null || p2 == null) {
+            throw new PersonNotFoundException("No person exists with ID = " + ((p1 == null) ? firstID : secondID));
         }
         return (p1.getIq() > p2.getIq()) ? p1 : (p1.getIq() < p2.getIq()) ? p2 : null;
     }
 
-    public void updatePersonIQ(int personID, int delta) {
+    public void updatePersonIQ(int personID, int delta) throws PersonNotFoundException {
 
         Person p = storage.getPersonByID(personID);
         if(p == null) {
-            System.err.println("No person exists with ID = " + personID);
-            return;
+            throw new PersonNotFoundException("No person exists with ID = " + personID);
         }
         p.setIq(p.getIq() + delta);
         saveStorage();
+
     }
 
-    public void moveSomeIQ(int personToIncreaseID, int personToDecreaseID, int delta) {
+    public void moveSomeIQ(int personToIncreaseID, int personToDecreaseID, int delta) throws PersonNotFoundException {
 
         updatePersonIQ(personToIncreaseID, delta);
         updatePersonIQ(personToDecreaseID, -delta);

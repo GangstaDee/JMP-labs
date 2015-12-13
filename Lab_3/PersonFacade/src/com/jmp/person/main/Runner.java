@@ -2,6 +2,7 @@ package com.jmp.person.main;
 
 import com.jmp.person.entity.Person;
 import com.jmp.person.entity.PersonStorage;
+import com.jmp.person.exception.PersonNotFoundException;
 import com.jmp.person.facade.PersonKeeper;
 import com.jmp.person.file.FileWriter;
 
@@ -21,11 +22,15 @@ public class Runner {
         writer.save(storage);
 
         PersonKeeper keeper = new PersonKeeper(storage, writer);
-        System.out.println(keeper.getSmartestPerson(1,2));
-        keeper.updatePersonIQ(1,10);
-        System.out.println(keeper.getSmartestPerson(1,2));
-        keeper.updatePersonIQ(2,20);
-        keeper.moveSomeIQ(2,3,15);
+        try {
+            System.out.println(keeper.getSmartestPerson(1, 2));
+            keeper.updatePersonIQ(1, 10);
+            System.out.println(keeper.getSmartestPerson(1, 2));
+            keeper.updatePersonIQ(2, 20);
+            keeper.moveSomeIQ(2, 3, 15);
+        } catch(PersonNotFoundException ex) {
+            System.err.println();
+        }
 
     }
 }
