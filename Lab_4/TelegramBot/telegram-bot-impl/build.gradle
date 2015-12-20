@@ -1,0 +1,7 @@
+group 'telegram-bot-impl'
+
+dependencies {
+    compile project(':telegram-bot-api')
+    compile 'com.google.apis:google-api-services-youtube:v3-rev157-1.21.0'
+}
+
