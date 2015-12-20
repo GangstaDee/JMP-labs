@@ -1,0 +1,4 @@
+rootProject.name = 'TelegramBot'
+include ':telegram-bot-api'
+include ':telegram-bot-impl'
+
