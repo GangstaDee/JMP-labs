@@ -1,0 +1,8 @@
+group 'telegram-bot-impl'
+
+dependencies {
+    compile project(':telegram-bot-api')
+    compile project(':telegram-bot-command')
+
+}
+
