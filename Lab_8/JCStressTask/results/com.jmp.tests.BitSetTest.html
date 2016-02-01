@@ -1,0 +1,28 @@
+<h1>com.jmp.tests.BitSetTest</h1>
+<p>BitSet thread-safety test</p>
+<table width=100%>
+<tr>
+<th width=250>Observed state</th>
+<th width=50>Occurrence</th>
+<th width=50>Expectation</th>
+<th>Interpretation</th>
+</tr>
+<tr bgColor=#00ff00>
+<td>[true, true]</td>
+<td align=center>60822272</td>
+<td align=center>ACCEPTABLE</td>
+<td>Everything is ok, values are matched</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[false, true]</td>
+<td align=center>311075</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>T1 result is overwritten</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[true, false]</td>
+<td align=center>365123</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>T2 result is overwritten</td>
+</tr>
+</table>

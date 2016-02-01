@@ -1,0 +1,27 @@
+group 'JCStressTask'
+version '1.0-SNAPSHOT'
+
+buildDir = 'build-gradle'
+
+apply plugin: 'java'
+
+version = '1.0'
+
+buildscript {
+     repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.github.erizo.gradle:jcstress-gradle-plugin:0.5'
+    }
+}
+
+apply plugin: 'jcstress'
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+}

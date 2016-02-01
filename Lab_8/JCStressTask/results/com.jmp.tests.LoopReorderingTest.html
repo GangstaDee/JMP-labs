@@ -1,0 +1,64 @@
+<h1>com.jmp.tests.LoopReorderingTest</h1>
+<p>Test to identify reordering optimization using loop</p>
+<table width=100%>
+<tr>
+<th width=250>Observed state</th>
+<th width=50>Occurrence</th>
+<th width=50>Expectation</th>
+<th>Interpretation</th>
+</tr>
+<tr bgColor=#00ff00>
+<td>[0, 0]</td>
+<td align=center>22383029</td>
+<td align=center>ACCEPTABLE</td>
+<td>No reordering</td>
+</tr>
+<tr bgColor=#00ff00>
+<td>[1, 0]</td>
+<td align=center>7815</td>
+<td align=center>ACCEPTABLE</td>
+<td>No reordering</td>
+</tr>
+<tr bgColor=#00ff00>
+<td>[2, 0]</td>
+<td align=center>5783</td>
+<td align=center>ACCEPTABLE</td>
+<td>No reordering</td>
+</tr>
+<tr bgColor=#00ff00>
+<td>[3, 0]</td>
+<td align=center>7188</td>
+<td align=center>ACCEPTABLE</td>
+<td>No reordering</td>
+</tr>
+<tr bgColor=#00ff00>
+<td>[2, 20]</td>
+<td align=center>772</td>
+<td align=center>ACCEPTABLE</td>
+<td>No reordering</td>
+</tr>
+<tr bgColor=#00ff00>
+<td>[3, 20]</td>
+<td align=center>58276324</td>
+<td align=center>ACCEPTABLE</td>
+<td>No reordering</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[0, 20]</td>
+<td align=center>21037</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>Reordering identified</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[1, 20]</td>
+<td align=center>1132</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>Reordering identified</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[2, 20]</td>
+<td align=center>772</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>Reordering identified</td>
+</tr>
+</table>

@@ -1,0 +1,9 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"com.jmp.StringJava8Benchmark.testJava7","avgt",1,5,9.799340,0.079413,"ns/op",20
+"com.jmp.StringJava8Benchmark.testJava7","avgt",1,5,174.639707,43.436753,"ns/op",100
+"com.jmp.StringJava8Benchmark.testJava7","avgt",1,5,909.318991,204.440215,"ns/op",500
+"com.jmp.StringJava8Benchmark.testJava7","avgt",1,5,6036.274083,432.058164,"ns/op",4000
+"com.jmp.StringJava8Benchmark.testJava8","avgt",1,5,278.400542,18.233044,"ns/op",20
+"com.jmp.StringJava8Benchmark.testJava8","avgt",1,5,1540.010943,31.766644,"ns/op",100
+"com.jmp.StringJava8Benchmark.testJava8","avgt",1,5,6290.331021,51.925036,"ns/op",500
+"com.jmp.StringJava8Benchmark.testJava8","avgt",1,5,116995.239818,25080.770968,"ns/op",4000

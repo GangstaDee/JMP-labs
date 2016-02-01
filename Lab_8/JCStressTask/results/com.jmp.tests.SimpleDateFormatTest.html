@@ -1,0 +1,34 @@
+<h1>com.jmp.tests.SimpleDateFormatTest</h1>
+<p>SimpleDateFormat thread-safety test</p>
+<table width=100%>
+<tr>
+<th width=250>Observed state</th>
+<th width=50>Occurrence</th>
+<th width=50>Expectation</th>
+<th>Interpretation</th>
+</tr>
+<tr bgColor=#00ff00>
+<td>[true, true]</td>
+<td align=center>1319968</td>
+<td align=center>ACCEPTABLE</td>
+<td>Everything is ok, values are matched</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[false, true]</td>
+<td align=center>37427</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>Fail!</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[true, false]</td>
+<td align=center>36347</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>Fail!</td>
+</tr>
+<tr bgColor=#00ffff>
+<td>[false, false]</td>
+<td align=center>104908</td>
+<td align=center>ACCEPTABLE_INTERESTING</td>
+<td>Fail!</td>
+</tr>
+</table>

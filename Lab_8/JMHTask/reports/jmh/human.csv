@@ -1,0 +1,269 @@
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava7
+# Parameters: (size = 20)
+
+# Run progress: 0.00% complete, ETA 00:01:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 9.712 ns/op
+# Warmup Iteration   2: 11.785 ns/op
+# Warmup Iteration   3: 9.871 ns/op
+# Warmup Iteration   4: 9.846 ns/op
+# Warmup Iteration   5: 9.816 ns/op
+Iteration   1: 9.834 ns/op
+Iteration   2: 9.795 ns/op
+Iteration   3: 9.779 ns/op
+Iteration   4: 9.791 ns/op
+Iteration   5: 9.798 ns/op
+
+
+Result "testJava7":
+  9.799 ±(99.9%) 0.079 ns/op [Average]
+  (min, avg, max) = (9.779, 9.799, 9.834), stdev = 0.021
+  CI (99.9%): [9.720, 9.879] (assumes normal distribution)
+
+
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava7
+# Parameters: (size = 100)
+
+# Run progress: 12.50% complete, ETA 00:01:12
+# Fork: 1 of 1
+# Warmup Iteration   1: 178.039 ns/op
+# Warmup Iteration   2: 168.392 ns/op
+# Warmup Iteration   3: 166.121 ns/op
+# Warmup Iteration   4: 167.168 ns/op
+# Warmup Iteration   5: 168.637 ns/op
+Iteration   1: 170.268 ns/op
+Iteration   2: 168.601 ns/op
+Iteration   3: 170.243 ns/op
+Iteration   4: 169.306 ns/op
+Iteration   5: 194.780 ns/op
+
+
+Result "testJava7":
+  174.640 ±(99.9%) 43.437 ns/op [Average]
+  (min, avg, max) = (168.601, 174.640, 194.780), stdev = 11.280
+  CI (99.9%): [131.203, 218.076] (assumes normal distribution)
+
+
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava7
+# Parameters: (size = 500)
+
+# Run progress: 25.00% complete, ETA 00:01:02
+# Fork: 1 of 1
+# Warmup Iteration   1: 1138.596 ns/op
+# Warmup Iteration   2: 915.186 ns/op
+# Warmup Iteration   3: 885.991 ns/op
+# Warmup Iteration   4: 881.683 ns/op
+# Warmup Iteration   5: 887.622 ns/op
+Iteration   1: 884.652 ns/op
+Iteration   2: 1003.544 ns/op
+Iteration   3: 877.997 ns/op
+Iteration   4: 896.377 ns/op
+Iteration   5: 884.025 ns/op
+
+
+Result "testJava7":
+  909.319 ±(99.9%) 204.440 ns/op [Average]
+  (min, avg, max) = (877.997, 909.319, 1003.544), stdev = 53.092
+  CI (99.9%): [704.879, 1113.759] (assumes normal distribution)
+
+
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava7
+# Parameters: (size = 4000)
+
+# Run progress: 37.50% complete, ETA 00:00:52
+# Fork: 1 of 1
+# Warmup Iteration   1: 7435.167 ns/op
+# Warmup Iteration   2: 5969.215 ns/op
+# Warmup Iteration   3: 5964.852 ns/op
+# Warmup Iteration   4: 5954.409 ns/op
+# Warmup Iteration   5: 5987.362 ns/op
+Iteration   1: 5997.502 ns/op
+Iteration   2: 5961.784 ns/op
+Iteration   3: 5982.224 ns/op
+Iteration   4: 6005.064 ns/op
+Iteration   5: 6234.797 ns/op
+
+
+Result "testJava7":
+  6036.274 ±(99.9%) 432.058 ns/op [Average]
+  (min, avg, max) = (5961.784, 6036.274, 6234.797), stdev = 112.204
+  CI (99.9%): [5604.216, 6468.332] (assumes normal distribution)
+
+
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava8
+# Parameters: (size = 20)
+
+# Run progress: 50.00% complete, ETA 00:00:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 389.655 ns/op
+# Warmup Iteration   2: 271.163 ns/op
+# Warmup Iteration   3: 273.062 ns/op
+# Warmup Iteration   4: 273.751 ns/op
+# Warmup Iteration   5: 274.457 ns/op
+Iteration   1: 278.462 ns/op
+Iteration   2: 285.643 ns/op
+Iteration   3: 278.699 ns/op
+Iteration   4: 276.630 ns/op
+Iteration   5: 272.569 ns/op
+
+
+Result "testJava8":
+  278.401 ±(99.9%) 18.233 ns/op [Average]
+  (min, avg, max) = (272.569, 278.401, 285.643), stdev = 4.735
+  CI (99.9%): [260.167, 296.634] (assumes normal distribution)
+
+
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava8
+# Parameters: (size = 100)
+
+# Run progress: 62.50% complete, ETA 00:00:31
+# Fork: 1 of 1
+# Warmup Iteration   1: 1820.076 ns/op
+# Warmup Iteration   2: 1553.185 ns/op
+# Warmup Iteration   3: 1542.918 ns/op
+# Warmup Iteration   4: 1538.032 ns/op
+# Warmup Iteration   5: 1553.634 ns/op
+Iteration   1: 1539.617 ns/op
+Iteration   2: 1549.481 ns/op
+Iteration   3: 1534.169 ns/op
+Iteration   4: 1529.937 ns/op
+Iteration   5: 1546.850 ns/op
+
+
+Result "testJava8":
+  1540.011 ±(99.9%) 31.767 ns/op [Average]
+  (min, avg, max) = (1529.937, 1540.011, 1549.481), stdev = 8.250
+  CI (99.9%): [1508.244, 1571.778] (assumes normal distribution)
+
+
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava8
+# Parameters: (size = 500)
+
+# Run progress: 75.00% complete, ETA 00:00:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 7692.701 ns/op
+# Warmup Iteration   2: 6398.046 ns/op
+# Warmup Iteration   3: 6371.385 ns/op
+# Warmup Iteration   4: 6406.987 ns/op
+# Warmup Iteration   5: 6305.115 ns/op
+Iteration   1: 6277.315 ns/op
+Iteration   2: 6300.947 ns/op
+Iteration   3: 6303.613 ns/op
+Iteration   4: 6295.127 ns/op
+Iteration   5: 6274.652 ns/op
+
+
+Result "testJava8":
+  6290.331 ±(99.9%) 51.925 ns/op [Average]
+  (min, avg, max) = (6274.652, 6290.331, 6303.613), stdev = 13.485
+  CI (99.9%): [6238.406, 6342.256] (assumes normal distribution)
+
+
+# JMH 1.11.2 (released 95 days ago, please consider updating!)
+# VM version: JDK 1.8.0_66, VM 25.66-b18
+# VM invoker: C:\Program Files\Java\jdk1.8.0_66\jre\bin\java.exe
+# VM options: -Dfile.encoding=windows-1251 -Duser.country=US -Duser.language=en -Duser.variant
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.jmp.StringJava8Benchmark.testJava8
+# Parameters: (size = 4000)
+
+# Run progress: 87.50% complete, ETA 00:00:10
+# Fork: 1 of 1
+# Warmup Iteration   1: 132640.222 ns/op
+# Warmup Iteration   2: 108628.485 ns/op
+# Warmup Iteration   3: 109572.898 ns/op
+# Warmup Iteration   4: 111049.644 ns/op
+# Warmup Iteration   5: 110626.464 ns/op
+Iteration   1: 112694.491 ns/op
+Iteration   2: 115016.995 ns/op
+Iteration   3: 128544.964 ns/op
+Iteration   4: 114382.499 ns/op
+Iteration   5: 114337.250 ns/op
+
+
+Result "testJava8":
+  116995.240 ±(99.9%) 25080.771 ns/op [Average]
+  (min, avg, max) = (112694.491, 116995.240, 128544.964), stdev = 6513.397
+  CI (99.9%): [91914.469, 142076.011] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:23
+
+Benchmark                       (size)  Mode  Cnt       Score       Error  Units
+StringJava8Benchmark.testJava7      20  avgt    5       9.799 ±     0.079  ns/op
+StringJava8Benchmark.testJava7     100  avgt    5     174.640 ±    43.437  ns/op
+StringJava8Benchmark.testJava7     500  avgt    5     909.319 ±   204.440  ns/op
+StringJava8Benchmark.testJava7    4000  avgt    5    6036.274 ±   432.058  ns/op
+StringJava8Benchmark.testJava8      20  avgt    5     278.401 ±    18.233  ns/op
+StringJava8Benchmark.testJava8     100  avgt    5    1540.011 ±    31.767  ns/op
+StringJava8Benchmark.testJava8     500  avgt    5    6290.331 ±    51.925  ns/op
+StringJava8Benchmark.testJava8    4000  avgt    5  116995.240 ± 25080.771  ns/op
+
+Benchmark result is saved to build\reports\jmh\results.csv

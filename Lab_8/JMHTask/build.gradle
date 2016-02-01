@@ -1,0 +1,29 @@
+plugins {
+    id 'me.champeau.gradle.jmh' version '0.2.0'
+}
+
+apply plugin: 'java'
+apply plugin: 'me.champeau.gradle.jmh'
+
+group 'JMHTask'
+version '1.0-SNAPSHOT'
+
+
+dependencies {
+    compile 'org.openjdk.jmh:jmh-core:1.11.2'
+    compile 'org.openjdk.jmh:jmh-generator-annprocess:1.11.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+jmh {
+    jmhVersion = '1.11.2'
+    include = '.*Benchmark.*'
+    failOnError = true
+    humanOutputFile = project.file("${project.buildDir}/reports/jmh/human.csv")
+    resultsFile = project.file("${project.buildDir}/reports/jmh/results.csv")
+    resultFormat = 'CSV'
+}
+
