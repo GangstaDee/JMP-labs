@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>MavenProject</artifactId>
+        <groupId>MavenProject</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>com.jmp.app</artifactId>
+    <packaging>ear</packaging>
+    <name>com.jmp.ear.maven</name>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>MavenProject</groupId>
+            <artifactId>com.jmp.common</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>MavenProject</groupId>
+            <artifactId>com.jmp.ejb</artifactId>
+            <version>1.0</version>
+            <type>ejb</type>
+        </dependency>
+
+        <dependency>
+            <groupId>MavenProject</groupId>
+            <artifactId>com.jmp.web</artifactId>
+            <version>1.0</version>
+            <type>war</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <modules>
+                       <webModule>
+                            <groupId>MavenProject</groupId>
+                            <artifactId>com.jmp.web</artifactId>
+                            <bundleFileName>warModule.war</bundleFileName>
+                            <contextRoot>/webappcontextroot</contextRoot>
+                        </webModule>
+                        <ejbModule>
+                            <groupId>MavenProject</groupId>
+                            <artifactId>com.jmp.ejb</artifactId>
+                            <bundleFileName>ejbModule.jar</bundleFileName>
+                        </ejbModule>
+                        <jarModule>
+                            <groupId>MavenProject</groupId>
+                            <artifactId>com.jmp.common</artifactId>
+                            <bundleFileName>jarModule.jar</bundleFileName>
+                        </jarModule>
+                    </modules>
+                    <displayName>com.jmp.ear.maven</displayName>
+                    <generateApplicationXml>true</generateApplicationXml>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.7.Final</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
