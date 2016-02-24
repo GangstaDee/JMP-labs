@@ -1,0 +1,17 @@
+Found one Java-level deadlock:
+=============================
+"Thread 1":
+  locked object 0x09569060 (a java.lang.String)
+  waiting to lock monitor 0x151f0c4c (object 0x09569470, a java.util.ArrayList), which is held by "Thread 2"
+  
+"Thread 2":
+  locked object 0x09569470 (a java.util.ArrayList)
+  waiting to lock monitor 0x151f1a4c (object 0x09569270, a java.lang.Boolean), which is held by "Thread 3"
+  
+ "Thread 3":
+  locked object 0x09569270 (a java.lang.Boolean)
+  waiting to lock monitor 0x151f19dc (object 0x09569070, a java.lang.Integer), which is held by "Thread 4"
+  
+"Thread 4":
+  locked object 0x09569070 (a java.lang.Integer)
+  waiting to lock monitor 0x151f284c (object 0x09569060, a java.lang.String), which is held by "Thread 1"
