@@ -1,0 +1,30 @@
+group 'GradleProject'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+
+dependencies {
+    compile libraries.netflix_core
+    testCompile libraries.junit
+}
+
+//sample update - not working yet
+task updateWebProps (type: War)  {
+
+    def warFile = file('../com.jmp.web/build/libs/com.jmp.web-1.0.war')
+
+    FileTree warContent = zipTree(warFile)
+    FileTree props = warContent.matching {include {details -> details.file.name.endsWith('.properties') }}
+
+    props.visit {element ->
+        println "$element.relativePath => $element.file"}
+
+    props.filter {
+        String line -> line.replaceAll("contextRoot", "contextRoot222")
+    }
+}

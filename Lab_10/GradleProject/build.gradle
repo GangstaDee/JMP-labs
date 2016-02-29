@@ -1,0 +1,29 @@
+apply plugin: 'idea'
+apply plugin: 'ear'
+
+dependencies {
+    deploy project(path:':com.jmp.web', configuration:'archives')
+    deploy project(":com.jmp.common")
+    deploy project(":com.jmp.ejb")
+}
+
+ext.libraries = [
+        netflix_core: "com.netflix.feign:feign-core:8.14.4",
+        junit: "junit:junit:4.11"
+]
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+ear {
+    baseName 'com.jmp.app.ear'
+    version '1.0'
+}
+
+
+
+
+
