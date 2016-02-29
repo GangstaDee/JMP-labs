@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.abc.CustomerTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.abc.CustomerTest" time="0.02" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="15.0.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -11,7 +11,7 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="idea.launcher.port" value="7533"/>
+    <property name="idea.launcher.port" value="7538"/>
     <property name="user.script" value=""/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -22,7 +22,7 @@
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_66\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="visualvm.id" value="3031597133660530"/>
+    <property name="visualvm.id" value="3057109676256374"/>
     <property name="java.io.tmpdir" value="C:\Users\DARYA_~1\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
@@ -68,6 +68,6 @@
   </properties>
   <testcase classname="com.abc.CustomerTest" name="testOneAccount" time="0"/>
   <testcase classname="com.abc.CustomerTest" name="testTwoAccount" time="0"/>
-  <testcase classname="com.abc.CustomerTest" name="testApp" time="0.002"/>
-  <testcase classname="com.abc.CustomerTest" name="testZeroAccounts" time="0.001"/>
+  <testcase classname="com.abc.CustomerTest" name="testApp" time="0.019"/>
+  <testcase classname="com.abc.CustomerTest" name="testZeroAccounts" time="0"/>
 </testsuite>
