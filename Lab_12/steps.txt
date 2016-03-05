@@ -1,0 +1,48 @@
+1. install apache
+check http://localhost
+
+2. install tomcat
+check http://localhost:8080
+
+3. configure 2 users - admin and admin123 (tomcat-users.xml):
+
+<user username="admin" password="abc123" roles="admin-gui,manager-gui" />
+<user username="admin123" password="abc123" roles="manager-script" />
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+
+4. generate webapp - ONE MODULE for now
+mvn archetype:generate 
+use maven-archetype-webapp archetype
++ add some files (jsp, html)
+ 
+5. configure maven plugin to deploy on tomcat (see pom.xml)
+ 
+6. download mod_jk.so (version is important!)
+install to apache/modules
+
+configuration (httpd.conf):
+LoadModule    jk_module  modules/mod_jk.so
+
+<IfModule jk_module>
+Alias /sample d:/apache-tomcat/webapps/sample/static
+JkWorkersFile conf/extra/workers.properties
+JkMount /*.jsp tomcatworker1 
+</IfModule>
+
++ create file workers.properties:
+ 
+workers.tomcat_home=d:/apache-tomcat
+ps=/
+ 
+worker.list=tomcatworker1
+worker.tomcatworker1.port=8009
+worker.tomcatworker1.host=localhost
+worker.tomcatworker1.type=ajp13
+ 
+7. double-check server.xml of Tomcat
+<Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+
+7. how to check - access logs (?)
+ 
+ 
