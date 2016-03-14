@@ -39,3 +39,4 @@ curl http://localhost:8081/git/notifyCommit?url=https://github.com/GangstaDee/sp
 4) commit some change to github (checkout -> add somefile.txt -> commit -> push)
 
 2nd way - polling interval
+job -> Build Triggers -> select Poll SCM; define schedule: */5 * * * *
