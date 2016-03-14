@@ -1,0 +1,41 @@
+Ordering is changed a bit.
+
+1. Create GitHub account
+- ready
+
+2. Fork Spring Petclinic application (https://github.com/spring-projects/spring-petclinic/)
+- done
+
+3. Configure Jenkins build job to checkout Petclinic project from your GitHub account
+- create new Maven job
+- install Git plugin to Jenkins
+- Source Code Management: select Git; Repository URL - https://github.com/GangstaDee/spring-petclinic
++ provide credentials for your GitHub account 
+
+4. Configure polling interval (5 minutes)
+see below
+
+5. Setup Petclinic build with Maven.
+- Jenkins global configuration:
+	JDK - define path to JAVA_HOME (c:\Program Files\Java\jdk1.8.0_66\)
+	Maven Configuration - specify Default settings provider (d:\apache-maven-3.3.9\conf\settings.xml) and Default global settings provider (the same)
+	Git configuration - provide URL to Git executable (local path to git.exe)
+	if any issues with language - set up Locale plugin and change language manually
+
+6. Ensure unit tests are executed.
+- after build check Console output - ' T E S T S '
+
+7. Ensure unit test results are display on Jenkins project and build pages.
+Jenkins -> build -> Latest Test Result
+
+8. Commit any change to your GitHub project and this should result in Jenkins automated build triggered
+
+1st way - using git hooks
+1) navigate to c:\Users\#########\GitHub\spring-petclinic\.git\hooks\
+2) create file with no extension named 'post-commit'
+3) add to file: 
+#! /bin/bash
+curl http://localhost:8081/git/notifyCommit?url=https://github.com/GangstaDee/spring-petclinic
+4) commit some change to github (checkout -> add somefile.txt -> commit -> push)
+
+2nd way - polling interval
