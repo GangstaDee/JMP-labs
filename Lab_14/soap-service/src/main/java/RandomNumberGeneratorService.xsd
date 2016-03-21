@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://server.soap.jmp.com/" xmlns:tns="http://server.soap.jmp.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="randomNumber" type="tns:randomNumber"/>
+
+  <xs:element name="randomNumberResponse" type="tns:randomNumberResponse"/>
+
+  <xs:complexType name="randomNumber">
+    <xs:sequence>
+      <xs:element name="lowerBound" type="xs:int"/>
+      <xs:element name="upperBound" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="randomNumberResponse">
+    <xs:sequence>
+      <xs:element name="random" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
