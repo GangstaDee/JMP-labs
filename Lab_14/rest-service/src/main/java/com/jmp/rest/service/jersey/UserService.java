@@ -13,55 +13,53 @@ import javax.ws.rs.core.Response;
 @Path("/user")
 public class UserService {
 
-    @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
-    @Path("/read/{id}")
-    public Response readUser(@PathParam("id") int id) {
-        if(id <=0) {
-            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid ID").type(MediaType.TEXT_PLAIN).build();
-        }
+    @POST
+    //@Consumes(MediaType.APPLICATION_XML)
+    public Response createUser(User user) {
 
-        User user = UserStorage.readUser(id);
-        if(user == null) {
-            return Response.status(201).entity("No users found").type(MediaType.TEXT_PLAIN).build();
-        }
-
-        return Response.ok(user, MediaType.APPLICATION_XML).build();
+        UserStorage.addUser(user);
+        return Response.status(Response.Status.CREATED).entity("User was successfully created").build();
     }
 
-    @POST
-    @Consumes(MediaType.APPLICATION_XML)
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/create")
-    public Response createUser(User user) {
-        UserStorage.addUser(user);
-        return Response.ok("Added successfully", MediaType.TEXT_PLAIN).build();
+    @GET
+    public Response readUser(@QueryParam("id") int id) {
+
+        if(id <=0) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid ID").build();
+        }
+        User user = UserStorage.readUser(id);
+        if(user == null) {
+            return Response.status(Response.Status.NO_CONTENT).entity("No users found").build();
+        }
+
+        return Response.ok(user).build();
     }
 
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/update")
-    public Response updateUser(User user) {
-        boolean updated = UserStorage.updateUser(user);
-        if(!updated)
-            return Response.status(201).entity("User was not updated").type(MediaType.TEXT_PLAIN).build();
+    //@Consumes(MediaType.APPLICATION_JSON)
+    public Response updateUser(@QueryParam("id") int id, User user) {
 
-        return Response.ok("Updated successfully", MediaType.TEXT_PLAIN).build();
+        if(id <=0) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid ID").build();
+        }
+        boolean updated = UserStorage.updateUser(id, user);
+        if(!updated)
+            return Response.status(Response.Status.NO_CONTENT).entity("No users found").build();
+
+        return Response.ok("User was successfully updated").build();
     }
 
     @DELETE
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/delete/{id}")
-    public Response deleteUser(@PathParam("id") int id) {
+    public Response deleteUser(@QueryParam("id") int id) {
+
         if(id <=0) {
-            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid ID").type(MediaType.TEXT_PLAIN).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity("Invalid ID").build();
         }
         boolean deleted = UserStorage.deleteUser(id);
         if(!deleted) {
-            return Response.status(201).entity("No users found").type(MediaType.TEXT_PLAIN).build();
+            return Response.status(Response.Status.NO_CONTENT).entity("No users found").build();
         }
 
-        return Response.ok("Deleted successfully", MediaType.TEXT_PLAIN).build();
+        return Response.ok("User was successfully deleted").build();
     }
 }

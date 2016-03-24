@@ -31,8 +31,8 @@ public class UserStorage {
         return users.removeIf(user -> id == user.getId());
     }
 
-    public static boolean updateUser(User updated) {
-        User old = readUser(updated.getId());
+    public static boolean updateUser(int id, User updated) {
+        User old = readUser(id);
         if(old == null)
             return false;
         old.setFirstName(updated.getFirstName());
