@@ -6,7 +6,7 @@ public interface UnitService {
 
     Unit save(Unit unit);
 
-    Unit find(int unitID);
+    Unit read(int unitID, boolean eager);
 
     int delete(int unitID);
 }

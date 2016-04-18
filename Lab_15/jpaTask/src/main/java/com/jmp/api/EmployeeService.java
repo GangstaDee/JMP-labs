@@ -1,16 +1,17 @@
 package com.jmp.api;
 
+import com.jmp.api.exception.DataNotFoundException;
 import com.jmp.entity.Employee;
 
 public interface EmployeeService {
 
     Employee save(Employee employee);
 
-    Employee find(int employeeID);
+    Employee read(int employeeID, boolean eager);
 
     int delete(int employeeID);
 
-    boolean assignUnit(int employeeID, int unitID);
+    Employee assignUnit(int employeeID, int unitID) throws DataNotFoundException;
 
-    boolean addProject(int employeeID, int projectID);
+    Employee addProject(int employeeID, int projectID) throws DataNotFoundException;
 }

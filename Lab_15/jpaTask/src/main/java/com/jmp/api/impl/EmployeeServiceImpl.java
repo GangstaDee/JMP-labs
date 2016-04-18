@@ -3,27 +3,22 @@ package com.jmp.api.impl;
 import com.jmp.api.EmployeeService;
 import com.jmp.api.ProjectService;
 import com.jmp.api.UnitService;
+import com.jmp.api.exception.DataNotFoundException;
+import com.jmp.dao.EmployeeDAO;
 import com.jmp.entity.Employee;
-import com.jmp.entity.PersonalInfo;
 import com.jmp.entity.Project;
 import com.jmp.entity.Unit;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
-import javax.persistence.Query;
 
 @Service("employeeService")
-@Repository
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @PersistenceContext(type = PersistenceContextType.EXTENDED) //dirty hack
-    private EntityManager entityManager;
+    @Resource
+    private EmployeeDAO employeeDAO;
 
     @Resource(name = "unitService")
     private UnitService unitService;
@@ -32,55 +27,58 @@ public class EmployeeServiceImpl implements EmployeeService {
     private ProjectService projectService;
 
     public Employee save(Employee employee){
-        if (employee.getId() == null) {
-            entityManager.persist(employee);
-        } else {
-            employee = entityManager.merge(employee);
-        }
-        return employee;
+        return employeeDAO.save(employee);
     }
 
-    public Employee find(int employeeID) {
-        return entityManager.find(Employee.class, employeeID);
+    @Override
+    public Employee read(int employeeID, boolean eager) {
+        if(eager) {
+            Employee employee = employeeDAO.readFullDetails(employeeID);
+        }
+        return employeeDAO.read(employeeID);
     }
+
 
     public int delete(int employeeID) {
-
-        Employee emp = find(employeeID);
-        if(emp == null) return 0;
-        entityManager.remove(emp);
-        return 1;
-
+        return employeeDAO.delete(employeeID);
     }
 
-    public boolean assignUnit(int employeeID, int unitID) {
+    public Employee assignUnit(int employeeID, int unitID) throws DataNotFoundException {
 
-        Unit unit = unitService.find(unitID);
-        if(unit == null)
-            return false;
-        Employee employee = this.find(employeeID);
-        if(employee == null)
-            return false;
+        Unit unit = unitService.read(unitID, false);
+        if(unit == null) {
+           throw new DataNotFoundException("Unit not found, ID ", unitID);
+        }
+
+        Employee employee = read(employeeID, false);
+        if(employee == null) {
+            throw new DataNotFoundException("Employee not found, ID ", employeeID);
+        }
+
         employee.setUnit(unit);
-        save(employee);
-        return true;
+        Employee saved = save(employee);
+        return saved;
     }
 
-    public boolean addProject(int employeeID, int projectID)  //doesn't work yet
-    {
-        Project project = projectService.find(projectID);
-        System.out.println(project);
-        if(project == null)
-            return false;
-        Employee employee = this.find(employeeID);
-        System.out.println(employee);
-        if(employee == null)
-            return false;
+    public Employee addProject(int employeeID, int projectID) throws DataNotFoundException {
+
+        Project project = projectService.read(projectID, false);
+
+        if(project == null) {
+            throw new DataNotFoundException("Project not found, ID ", projectID);
+        }
+
+        Employee employee = read(employeeID, true);
+        if(employee == null) {
+            throw new DataNotFoundException("Employee not found, ID ", employeeID);
+        }
 
         employee.addProject(project);
-        entityManager.merge(employee);
+        employeeDAO.save(employee);
 
-        return true;
+        Employee saved = save(employee);
+
+        return saved;
 
     }
 }

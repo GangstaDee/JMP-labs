@@ -2,6 +2,7 @@ package com.jmp.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,10 @@ public class Project implements Serializable{
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "projects")
     private List<Employee> employees;
+
+    public Project() {
+        this.employees = new ArrayList<>();
+    }
 
     public Integer getId() {
         return id;

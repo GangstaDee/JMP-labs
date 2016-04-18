@@ -2,6 +2,7 @@ package com.jmp.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,10 @@ public class Unit implements Serializable {
 
     @OneToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, mappedBy = "unit", fetch = FetchType.LAZY)
     private List<Employee> employees;
+
+    public Unit() {
+        employees = new ArrayList<>();
+    }
 
     public Integer getId() {
         return id;

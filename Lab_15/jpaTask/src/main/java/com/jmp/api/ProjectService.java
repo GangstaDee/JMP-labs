@@ -6,7 +6,7 @@ public interface ProjectService {
 
     Project save(Project project);
 
-    Project find(int projectID);
+    Project read(int projectID, boolean eager);
 
     int delete(int projectID);
 }

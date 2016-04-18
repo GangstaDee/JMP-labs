@@ -2,6 +2,7 @@ package com.jmp.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -40,6 +41,10 @@ public class Employee implements Serializable {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "EMPLOYEES_PROJECTS", joinColumns = @JoinColumn(name = "EMPLOYEE_ID"), inverseJoinColumns = @JoinColumn(name = "PROJECT_ID"))
     private List<Project> projects;
+
+    public Employee() {
+        projects = new ArrayList<>();
+    }
 
     public Integer getId() {
         return id;
